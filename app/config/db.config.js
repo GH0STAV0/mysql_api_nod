@@ -1,6 +1,6 @@
 module.exports = {
   HOST: "mysql-jtqb",
-  USER: "root",
-  PASSWORD: "l6LnbsEMeNcJbc7wFgKj0utc7sUYM8X8",
+  USER: "mysql",
+  PASSWORD: "Ux4I5bFBOfynvoFVrkmeJKLiS7cT7cuj",
   DB: "mysql"
 };
