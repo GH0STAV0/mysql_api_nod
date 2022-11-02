@@ -1,6 +1,6 @@
 module.exports = {
-  HOST: "127.0.0.1",
+  HOST: "mysql-jtqb",
   USER: "root",
-  PASSWORD: "ooop",
-  DB: "db_api"
+  PASSWORD: "l6LnbsEMeNcJbc7wFgKj0utc7sUYM8X8",
+  DB: "mysql"
 };
