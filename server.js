@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "GET  /nor/1 ; \n  GET /nor/ran ; GET  /nor/count  \n ; PUT /nor/reset_all ; PUT /nor/update/1  " });
+  res.json({ message: "GET /google_account/active ; GET  /nor/1 ;   GET /nor/ran ; GET  /nor/count   ; PUT /nor/reset_all ; PUT /nor/update/1  " });
 });
 
 require("./app/routes/customer.routes.js")(app);
