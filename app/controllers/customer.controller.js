@@ -2,6 +2,18 @@ const Customer = require("../models/customer.model.js");
 
 
 
+// Retrieve Active Google  from the database.
+exports.get_active_google = (req, res) => {
+  Customer.get_active_google((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving get random."
+      });
+    else res.send(data);
+  });
+};
+
 // Retrieve all Customers from the database.
 exports.get_random = (req, res) => {
   Customer.get_random((err, data) => {

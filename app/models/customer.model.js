@@ -7,6 +7,27 @@ const Customer = function(customer) {
   //this.active = customer.active;
 };
 
+
+
+Customer.get_active_google = result => {
+  sql.query("SELECT * FROM gc_acc WHERE (`ac_status`='n') ORDER BY RAND() LIMIT 1 ", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("get_active_google: ", res);
+    result(null, res);
+  });
+};
+
+
+
+
+
+
+
 Customer.reset_all_nord = result => {
   sql.query("UPDATE `nord_list2` SET  `used` = 'n'", (err, res) => {
     if (err) {

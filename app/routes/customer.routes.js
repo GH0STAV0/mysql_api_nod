@@ -1,6 +1,7 @@
 module.exports = app => {
   const customers = require("../controllers/customer.controller.js");
-
+  /////////////////////////////////////////////////////////////////////////////////
+  app.get("/google_account/active", customers.get_active_google);
 
   /////////////////////////////////////////////////////////////////////////////////
   // GET RANDOM CONFIG
@@ -16,9 +17,9 @@ module.exports = app => {
   //COUNT LEFT CONFIG
   app.put("/nor/update/:customerId", customers.update_nord);
 
-
   //Reset all Config set used=y
   app.put("/nor/reset_all", customers.reset_all_nord);
+  /////////////////////////////////////////////////////////////////////////////////
 
 
 
