@@ -10,7 +10,7 @@ const Customer = function(customer) {
 
 
 Customer.get_active_google = result => {
-  sql.query("SELECT * FROM gc_acc WHERE (`ac_status`='n') ORDER BY RAND() LIMIT 1 ", (err, res) => {
+  sql.query("SELECT * FROM gc_acc WHERE (`acc_status`='A') ORDER BY RAND() LIMIT 1 ", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

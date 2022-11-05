@@ -8,7 +8,7 @@ exports.get_active_google = (req, res) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving get random."
+          err.message || "Some error occurred while retrieving get active account."
       });
     else res.send(data);
   });
