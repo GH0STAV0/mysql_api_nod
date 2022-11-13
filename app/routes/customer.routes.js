@@ -23,7 +23,7 @@ module.exports = app => {
   app.put("/van/update/:customerId3", customers.update_van);
 
   //Reset all Config set used=y
-  //app.put("/nor/reset_all", customers.reset_all_nord);
+  app.put("/van/reset_all", customers.reset_all_van);
   /////////////////////////////////////////////////////////////////////////////////
 
 

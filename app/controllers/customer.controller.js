@@ -282,6 +282,18 @@ exports.deleteAll = (req, res) => {
 };
 
 
+//reset_all_van
+exports.reset_all_van = (req, res) => {
+  Customer.reset_all_van((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while removing all customers."
+      });
+    else res.send({ message: `All [ VANISH ] were reset successfully!` });
+  });
+};
+
 //reset_all_nord
 exports.reset_all_nord = (req, res) => {
   Customer.reset_all_nord((err, data) => {

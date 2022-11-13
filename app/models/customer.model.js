@@ -41,6 +41,21 @@ Customer.reset_all_nord = result => {
   });
 };
 
+// RESET ALL CONFIG * VANISH *
+
+Customer.reset_all_van = result => {
+  sql.query("UPDATE `vanish_tb` SET  `used` = 'n'", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log(`reset_all_nord ${res.affectedRows} customers`);
+    result(null, res);
+  });
+};
+
 
 
 // GET RANDOM CONFIG * VANISH *
