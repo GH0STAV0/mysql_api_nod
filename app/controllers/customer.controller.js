@@ -14,7 +14,19 @@ exports.get_active_google = (req, res) => {
   });
 };
 
-// Retrieve all Customers from the database.
+// Retrieve all Customers from the database. * N0RD *
+exports.get_random_van = (req, res) => {
+  Customer.get_random_van((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "VANISH =:= Some error occurred while retrieving get random."
+      });
+    else res.send(data);
+  });
+};
+
+// Retrieve all Customers from the database. * N0RD *
 exports.get_random = (req, res) => {
   Customer.get_random((err, data) => {
     if (err)
@@ -27,7 +39,19 @@ exports.get_random = (req, res) => {
 };
 
 
-// Retrieve all Customers from the database.
+// Retrieve all Customers from the database. * VANISH *
+exports.config_left_van = (req, res) => {
+  Customer.config_left_van((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "VANISH =:= Some error occurred while retrieving get random."
+      });
+    else res.send(data);
+  });
+};
+
+// Retrieve all Customers from the database. * N0RD *
 exports.config_left = (req, res) => {
   Customer.config_left((err, data) => {
     if (err)

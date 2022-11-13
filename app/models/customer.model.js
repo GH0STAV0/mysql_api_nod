@@ -43,8 +43,23 @@ Customer.reset_all_nord = result => {
 
 
 
+// GET RANDOM CONFIG * VANISH *
+
+Customer.get_random_van = result => {
+  sql.query("SELECT * FROM vanish_tb WHERE (`used`='n') ORDER BY RAND() LIMIT 1 ", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("get_random VANISH :  ", res);
+    result(null, res);
+  });
+};
 
 
+// GET RANDOM CONFIG * N0RD *
 
 Customer.get_random = result => {
   sql.query("SELECT * FROM nord_list2 WHERE (`used`='n') ORDER BY RAND() LIMIT 1 ", (err, res) => {
@@ -59,7 +74,24 @@ Customer.get_random = result => {
   });
 };
 
-///SELECT COUNT(*) FROM product_details;
+///SELECT COUNT(*) FROM product_details * VANISH *;
+
+Customer.config_left_van = result => {
+  sql.query("SELECT COUNT(*) FROM vanish_tb WHERE (`used`='n') ", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("* VANISH * -config_left : ", res);
+    result(null, res);
+  });
+};
+
+
+
+///SELECT COUNT(*) FROM product_details * N0RD *;
 
 Customer.config_left = result => {
   sql.query("SELECT COUNT(*) FROM nord_list2 WHERE (`used`='n') ", (err, res) => {
