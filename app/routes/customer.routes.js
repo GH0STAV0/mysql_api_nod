@@ -17,10 +17,10 @@ module.exports = app => {
   app.get("/van/count", customers.config_left_van);
 
   // Retrieve a single Customer with customerId
-  //app.get("/nor/:customerId2", customers.findOne_nord);
+  app.get("/van/:customerId3", customers.findOne_van);
 
-  //COUNT LEFT CONFIG
-  //app.put("/nor/update/:customerId", customers.update_nord);
+  //update VANISH CONFIG
+  app.put("/van/update/:customerId3", customers.update_van);
 
   //Reset all Config set used=y
   //app.put("/nor/reset_all", customers.reset_all_nord);

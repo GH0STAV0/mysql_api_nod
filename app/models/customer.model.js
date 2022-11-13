@@ -121,6 +121,27 @@ Customer.create = (newCustomer, result) => {
   });
 };
 
+
+Customer.findById_van = (customerId, result) => {
+  sql.query(`SELECT * FROM vanish_tb WHERE id = ${customerId3}`, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    if (res.length) {
+      console.log("found customer vanish_tb : ", res[0]);
+      result(null, res[0]);
+      return;
+    }
+
+    // not found Customer with the id
+    result({ kind: "not_found" }, null);
+  });
+};
+
+
 Customer.findById_nord = (customerId, result) => {
   sql.query(`SELECT * FROM nord_list2 WHERE id = ${customerId}`, (err, res) => {
     if (err) {
@@ -172,6 +193,31 @@ Customer.getAll = result => {
   });
 };
 
+
+/////////////////////////////////////////////////////////////////
+
+Customer.updateById3 = (id, customer, result) => {
+  sql.query(
+    "UPDATE vanish_tb SET used = ? WHERE id = ?",
+    ["y", id],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Customer with the id
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
+      console.log("updated vanish_tb: ", { id: id });
+      result(null, { id: id });
+    }
+  );
+};
 
 /////////////////////////////////////////////////////////////////
 

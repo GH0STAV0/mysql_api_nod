@@ -119,6 +119,24 @@ exports.findOne = (req, res) => {
   });
 };
 
+exports.findOne_van = (req, res) => {
+  Customer.findById_van(req.params.customerId3, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `VANISH : Not found Customer with id ${req.params.customerId3}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "VANISH : Error retrieving Customer with id " + req.params.customerId3
+        });
+      }
+    } else res.send(data);
+  });
+};
+
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+
 exports.findOne_nord = (req, res) => {
   Customer.findById_nord(req.params.customerId2, (err, data) => {
     if (err) {
@@ -134,6 +152,42 @@ exports.findOne_nord = (req, res) => {
     } else res.send(data);
   });
 };
+
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+
+exports.update_van = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "VANISH : Content can not be empty!"
+    });
+  }
+
+  console.log(req.body);
+
+  Customer.updateById3(
+    req.params.customerId3,
+    new Customer(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `VANISH : Not found Customer with id ${req.params.customerId3}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "VANISH : Error updating Customer with id " + req.params.customerId3
+          });
+        }
+      } else res.send(data);
+    }
+  );
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+
+
 
 exports.update_nord = (req, res) => {
   // Validate Request
