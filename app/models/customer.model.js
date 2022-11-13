@@ -123,7 +123,7 @@ Customer.create = (newCustomer, result) => {
 
 
 Customer.findById_van = (customerId, result) => {
-  sql.query(`SELECT * FROM vanish_tb WHERE id = ${customerId3}`, (err, res) => {
+  sql.query(`SELECT * FROM vanish_tb WHERE id = ${customerId}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
