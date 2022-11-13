@@ -290,7 +290,7 @@ exports.reset_all_van = (req, res) => {
         message:
           err.message || "Some error occurred while removing all customers."
       });
-    else res.send({ message: `All [ VANISH ] were reset successfully!` });
+    else res.send({ message: `[ VANISH ] : All  were reset successfully!` });
   });
 };
 
